@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Blocker",
+  "version": "1.0",
+  "description": "Automatically hides all YouTube Shorts from the homepage and search results.",
+  "permissions": ["scripting", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "128": "icons/YoutubeShortHidder.png"
+  }
+}
