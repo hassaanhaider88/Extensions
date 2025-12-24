@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Pretty JSON Auto Formatter",
+  "version": "1.0",
+  "description": "Beautify JSON on any website automatically with copy buttons.",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "16": "icons/Logo.png"
+  }
+}
