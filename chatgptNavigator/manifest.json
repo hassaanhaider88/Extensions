@@ -3,12 +3,21 @@
   "name": "ChatGPT Message Navigator",
   "version": "1.0.0",
   "description": "Adds Grok-style message navigation sidebar to ChatGPT for quick jumping between messages.",
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
-      "js": ["content.js"],
-      "css": ["content.css"],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
       "run_at": "document_idle"
     }
   ],
@@ -17,8 +26,6 @@
     "default_title": "ChatGPT Navigator"
   },
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "icons/ChatGPTMessageNavigator.png"
   }
 }
