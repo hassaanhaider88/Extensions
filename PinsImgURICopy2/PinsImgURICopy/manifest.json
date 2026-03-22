@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Pins Image URI Copier",
+  "version": "1.0",
+  "description": "Copies the image URI from Pinterest pins with a single click.",
+  "permissions": ["activeTab", "clipboardWrite"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {
+    "128": "icons/PinterestURICopire.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/PinterestURICopire.png"
+    }
+  }
+}

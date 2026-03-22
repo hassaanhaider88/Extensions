@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "MapScraper By HMK CodeWeb",
+    "version": "1.0.0",
+    "description": "Extract Google Maps business data as clean JSON with one click.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "clipboardWrite",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.google.com/maps/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/MapScraperIcon.png",
+            "48": "icons/MapScraperIcon.png",
+            "128": "icons/MapScraperIcon.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.google.com/maps/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "icons": {
+        "16": "icons/MapScraperIcon.png",
+        "48": "icons/MapScraperIcon.png",
+        "128": "icons/MapScraperIcon.png"
+    }
+}

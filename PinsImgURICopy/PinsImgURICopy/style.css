@@ -1,0 +1,19 @@
+.copy-img-btn {
+  position: absolute;
+  border: none;
+  color: #fff;
+  background: #E60023;
+  top: 8px;
+  left: 8px;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 99999;
+  border: none;
+}
+
+.copy-img-btn:hover {
+  background: #ff0127;
+}
