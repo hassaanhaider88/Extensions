@@ -1,0 +1,187 @@
+/* ── Sidebar shell ── */
+#cgpt-nav-sidebar {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 36px;
+  padding: 10px 0 12px;
+  cursor: pointer;
+
+  background: rgba(18, 18, 22, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 14px 0 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: none;
+  box-shadow:
+    -2px 0 0 rgba(255, 255, 255, 0.03),
+    -8px 0 32px rgba(0, 0, 0, 0.45);
+
+  transition:
+    opacity 0.2s ease,
+    width 0.2s ease;
+}
+
+/* Collapsed: hide track, keep header */
+#cgpt-nav-sidebar.cn-collapsed .cn-track,
+#cgpt-nav-sidebar.cn-collapsed .cn-sep,
+#cgpt-nav-sidebar.cn-collapsed .cn-badge {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Header (hamburger icon) ── */
+.cn-header {
+  width: 36px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 10px 0 0 0;
+  transition: background 0.15s;
+}
+.cn-header:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cn-icon {
+  width: 25px;
+  height: 25px;
+  color: rgba(255, 255, 255, 0.38);
+  transition: color 0.15s;
+}
+.cn-header:hover .cn-icon {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Badge (message count) ── */
+.cn-badge {
+  font-size: 9px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 6px;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+
+/* ── Separator ── */
+.cn-sep {
+  width: 18px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+/* ── Track ── */
+.cn-track {
+  position: relative;
+  width: 20px;
+  transition:
+    height 0.3s ease,
+    opacity 0.2s;
+  flex-shrink: 0;
+}
+
+/* ── Marker ── */
+.cn-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 6px;
+  border-radius: 3px;
+  border: none;
+  background: rgba(255, 255, 255);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition:
+    width 0.15s ease,
+    height 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.cn-marker:hover {
+  width: 25px;
+  height: 7px;
+  background: rgba(223, 225, 230, 0.85);
+  box-shadow: 0 0 10px  rgba(255, 255, 255);
+}
+
+.cn-marker.cn-active {
+  width: 25px;
+  height: 7px;
+  background: #6aabff;
+  box-shadow: 0 0 12px  rgba(255, 255, 255);
+}
+
+/* ── Tooltip ── */
+#cgpt-nav-tooltip {
+  position: fixed;
+  right: 48px;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 230px;
+  min-width: 140px;
+  padding: 10px 13px 11px;
+
+  background: rgba(16, 16, 22, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 8px 30px rgba(0, 0, 0, 0.35);
+
+  pointer-events: none;
+  z-index: 100000;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.cn-tip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cn-tip-you {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color:  rgba(255, 255, 255);
+}
+
+.cn-tip-num {
+  font-size: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.28);
+  font-variant-numeric: tabular-nums;
+}
+
+.cn-tip-body {
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: pre-wrap;
+}

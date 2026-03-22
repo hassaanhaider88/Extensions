@@ -1,115 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MapScraper</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="popup.css" />
-</head>
-<body>
-  <div class="shell">
-
-    <!-- Header -->
-    <header class="header">
-      <div class="header-bg-glow"></div>
-      <div class="logo-row">
-        <div class="logo-mark">
-          <img src="icons/MapScraperIcon.png" alt="MapScraper Logo" class="logo-img" />
-        </div>
-        <div class="logo-text">
-          <h1 class="app-name">MapScraper</h1>
-          <p class="app-tagline">By HMK CodeWeb &nbsp;·&nbsp; Maps → JSON</p>
-        </div>
-      </div>
-      <div class="status-dot" id="statusDot" title="Checking page..."></div>
-    </header>
-
-    <!-- Page Status Bar -->
-    <div class="page-status" id="pageStatus">
-      <span class="status-icon">◎</span>
-      <span id="statusText">Checking current tab…</span>
-    </div>
-
-    <!-- Controls -->
-    <div class="controls">
-      <div class="controls-row">
-        <div class="field-group">
-          <label class="field-label">EXTRACT MODE</label>
-          <div class="toggle-group">
-            <button class="toggle-btn active" data-mode="auto">Auto</button>
-            <button class="toggle-btn" data-mode="listings">Listings</button>
-            <button class="toggle-btn" data-mode="detail">Detail</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MapScraper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-bg-glow"></div>
+        <div class="logo-row">
+          <div class="logo-mark">
+            <img
+              src="icons/MapScraperIcon.png"
+              alt="MapScraper Logo"
+              class="logo-img"
+            />
+          </div>
+          <div class="logo-text">
+            <h1 class="app-name">MapScraper</h1>
+            <p class="app-tagline">By HMK CodeWeb &nbsp;·&nbsp; Maps → JSON</p>
           </div>
         </div>
-        <div class="field-group">
-          <label class="field-label">FORMAT</label>
-          <div class="toggle-group">
-            <button class="toggle-btn active" data-fmt="pretty">Pretty</button>
-            <button class="toggle-btn" data-fmt="minified">Mini</button>
+        <div class="status-dot" id="statusDot" title="Checking page..."></div>
+      </header>
+
+      <!-- Page Status Bar -->
+      <div class="page-status" id="pageStatus">
+        <span class="status-icon">◎</span>
+        <span id="statusText">Checking current tab…</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="controls-row">
+          <div class="field-group">
+            <label class="field-label">EXTRACT MODE</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-mode="auto">Auto</button>
+              <button class="toggle-btn" data-mode="listings">Listings</button>
+              <button class="toggle-btn" data-mode="detail">Detail</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">FORMAT</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-fmt="pretty">
+                Pretty
+              </button>
+              <button class="toggle-btn" data-fmt="minified">Mini</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Main Extract Button -->
-    <button class="extract-btn" id="extractBtn">
-      <span class="btn-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="currentColor" opacity="0.9"/>
-          <circle cx="12" cy="9" r="2.5" fill="white"/>
-        </svg>
-      </span>
-      <span class="btn-text">Extract Data</span>
-      <span class="btn-loader" id="btnLoader"></span>
-    </button>
+      <!-- Main Extract Button -->
+      <button class="extract-btn" id="extractBtn">
+        <span class="btn-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+              fill="currentColor"
+              opacity="0.9"
+            />
+            <circle cx="12" cy="9" r="2.5" fill="white" />
+          </svg>
+        </span>
+        <span class="btn-text">Extract Data</span>
+        <span class="btn-loader" id="btnLoader"></span>
+      </button>
 
-    <!-- Result Preview -->
-    <div class="result-area" id="resultArea" style="display:none">
-      <div class="result-header">
-        <div class="result-meta">
-          <span class="result-badge" id="resultBadge">0 records</span>
-          <span class="result-type" id="resultType">—</span>
+      <!-- Result Preview -->
+      <div class="result-area" id="resultArea" style="display: none">
+        <div class="result-header">
+          <div class="result-meta">
+            <span class="result-badge" id="resultBadge">0 records</span>
+            <span class="result-type" id="resultType">—</span>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" id="copyBtn" title="Copy JSON">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                />
+              </svg>
+              Copy
+            </button>
+            <button class="action-btn" id="downloadBtn" title="Download JSON">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+            <button class="action-btn danger" id="clearBtn" title="Clear">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+              </svg>
+              Clear
+            </button>
+          </div>
         </div>
-        <div class="action-row">
-          <button class="action-btn" id="copyBtn" title="Copy JSON">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            Copy
-          </button>
-          <button class="action-btn" id="downloadBtn" title="Download JSON">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download
-          </button>
-          <button class="action-btn danger" id="clearBtn" title="Clear">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
-            Clear
+        <div class="json-preview" id="jsonPreview"></div>
+      </div>
+
+      <!-- History -->
+      <div class="history-section">
+        <div class="section-label">
+          <span>RECENT EXTRACTIONS</span>
+          <button class="clear-history-btn" id="clearHistoryBtn">
+            Clear all
           </button>
         </div>
+        <div class="history-list" id="historyList">
+          <div class="history-empty">No extractions yet</div>
+        </div>
       </div>
-      <div class="json-preview" id="jsonPreview"></div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <img src="icons/MapScraperIcon.png" class="footer-icon" alt="" />
+        <span>MapScraper v1.0</span>
+        <span class="dot">·</span>
+        <span class="footer-brand">HMK CodeWeb</span>
+      </footer>
     </div>
-
-    <!-- History -->
-    <div class="history-section">
-      <div class="section-label">
-        <span>RECENT EXTRACTIONS</span>
-        <button class="clear-history-btn" id="clearHistoryBtn">Clear all</button>
-      </div>
-      <div class="history-list" id="historyList">
-        <div class="history-empty">No extractions yet</div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <img src="icons/MapScraperIcon.png" class="footer-icon" alt="" />
-      <span>MapScraper v1.0</span>
-      <span class="dot">·</span>
-      <span class="footer-brand">HMK CodeWeb</span>
-    </footer>
-
-  </div>
-  <script src="popup.js"></script>
-</body>
+    <script src="popup.js"></script>
+  </body>
 </html>
