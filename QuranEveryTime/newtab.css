@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Arabic";
+  src: url("./ArabQuranIslamic140-K7n4W.ttf");
+}
+body {
+  margin: 0;
+  background: #f7f9fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+.container {
+  max-width: 900px;
+  text-align: center;
+  padding: 40px;
+}
+
+#arabic {
+  font-size: 42px;
+  line-height: 2;
+  direction: rtl;
+  margin-bottom: 30px;
+  font-family: "Arabic";
+}
+
+#wordByWord {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+#urdu {
+  font-size: 28px;
+  line-height: 2;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+#reference {
+  font-size: 18px;
+  color: #64748b;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  border: none;
+  background: #15803d;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}

@@ -28,3 +28,4 @@ hideShorts();
 // Observe for new content (YouTube dynamically loads it)
 const observer = new MutationObserver(hideShorts);
 observer.observe(document.body, { childList: true, subtree: true });
+

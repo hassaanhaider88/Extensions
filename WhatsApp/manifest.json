@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "WhatsApp Voice ↔ Text",
+    "version": "1.0.0",
+    "description": "Convert voice messages to text and text messages to voice — fully browser-based, no third-party APIs.",
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://web.whatsapp.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://web.whatsapp.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Voice ↔ Text — Settings"
+    }
+}
