@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Quran Every Time 🕋",
     "version": "1.0",
-    "description": "Random Quran Ayah with Urdu translation on every new tab.",
+    "description": "ہر نئے ٹیب پر اردو ترجمہ کے ساتھ باترتیب قرآن آیت۔",
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },

@@ -31,16 +31,39 @@ async function loadAyah() {
       (${arabicData.data.surah.number})
       -  آیت  نمبر ${arabicData.data.numberInSurah}`;
 
-        document.getElementById("wordByWord").innerHTML =
-            "Word-by-word translation API can be integrated from Quran.com.";
+        // document.getElementById("wordByWord").innerHTML =
+        //     "Word-by-word translation API can be integrated from Quran.com.";
 
     } catch (error) {
         console.error(error);
     }
 }
 
+const setTheme = (crtTheme) => {
+    if (crtTheme == "black") {
+        document.body.style.background = "black";
+        document.body.style.color = "white";
+    } else {
+        document.body.style.background = "white";
+        document.body.style.color = "black";
+    }
+}
+
+const themeToggler = document.getElementById("ThemeToggler");
+let theme = "black";
+themeToggler.addEventListener("click", () => {
+    if (theme === "black") {
+        setTheme("white");
+        theme = "white";
+    } else {
+        setTheme("black");
+        theme = "black";
+    }
+});
+
 document
     .getElementById("refreshBtn")
     .addEventListener("click", loadAyah);
 
 loadAyah();
+setTheme("black")

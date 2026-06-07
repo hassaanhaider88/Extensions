@@ -4,18 +4,18 @@
 }
 body {
   margin: 0;
-  background: #f7f9fc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  /* display: flex; */
+
   font-family: "Noto Nastaliq Urdu", serif;
 }
 
 .container {
-  max-width: 900px;
+  width: 100%;
   text-align: center;
-  padding: 40px;
+  padding: 40px 120px;
+  display: inline;
+  justify-content: center;
+  align-items: center;
 }
 
 #arabic {
@@ -29,19 +29,29 @@ body {
 #wordByWord {
   font-size: 20px;
   margin-bottom: 25px;
-  color: #444;
 }
 
 #urdu {
   font-size: 28px;
   line-height: 2;
-  color: #1e293b;
   margin-bottom: 20px;
 }
 
 #reference {
   font-size: 18px;
-  color: #64748b;
+  /* color: #64748b; */
+}
+#refreshBtn {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#ThemeToggler {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
 }
 
 button {
